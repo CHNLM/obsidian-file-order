@@ -1,0 +1,95 @@
+.file-order-item {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    border-radius: var(--radius-s);
+    font-size: var(--nav-item-size);
+    font-weight: var(--nav-item-weight);
+    line-height: var(--line-height-tight);
+    padding: var(--nav-item-padding);
+    white-space: pre;
+}
+
+.file-order-item:hover, .file-order-dragging .file-order-item {
+    background-color: var(--nav-item-background-hover);
+    color: var(--nav-item-color-hover);
+    font-weight: var(--nav-item-weight-hover);
+}
+
+/* The dragged item is moved with CSS transforms (dnd-kit), so lift it above
+   the other rows and give it a drop shadow to make the drag visible. */
+.file-order-dragging {
+    position: relative;
+    z-index: 100;
+}
+
+.file-order-dragging .file-order-item {
+    background-color: var(--background-secondary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    border-radius: var(--radius-s);
+}
+
+.file-order-item-name {
+    flex-grow: 1;
+    padding: 0 6px;
+}
+
+.file-order-dialog-row {
+    display: flex;
+    margin-bottom: 6px;
+}
+.file-order-dialog-row > * {
+    margin-right: 6px;
+}
+.file-order-dialog-row > :last-child {
+    margin-right: 0;
+}
+.file-order-dialog-row-grow {
+    flex-grow: 1;
+}
+
+.file-order-dialog-h2-container {
+    display: flex;
+    align-items: baseline;
+    margin-top: 6px;
+}
+.file-order-dialog-h2-container > button {
+    margin-left: 8px;
+}
+.file-order-dialog-h2 {
+    margin-bottom: 0;
+    flex-grow: 1;
+    font-size: var(--font-ui-medium);
+}
+.file-order-dialog-items-config {
+    font-size: var(--font-smaller);
+    line-height: var(--line-height-tight);
+    margin: 8px 0;
+}
+
+.file-order-field {
+    display: inline-flex;
+    align-items: center;
+    margin: 4px 8px 4px 0;
+}
+
+.file-order-field > :first-child {
+    display: flex;
+    align-items: center;
+    padding: var(--nav-item-padding);
+    background-color: var(--background-secondary);
+    border: 1px solid var(--divider-color);
+    border-top-left-radius: var(--radius-s);
+    border-bottom-left-radius: var(--radius-s);
+    height: var(--input-height);
+    cursor: pointer;
+}
+.file-order-field > :nth-child(2) {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.file-order-hidden, .file-order-expanded {
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}

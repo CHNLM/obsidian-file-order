@@ -1,0 +1,71 @@
+{
+  "name": "obsidian-file-order",
+  "version": "1.0.0",
+  "description": "Use number-prefixes in your file names to define a custom order, and use drag-and-drop in the file explorer to update that order",
+  "main": "dist/main.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "obsidian-plugin build --with-stylesheet src/styles.css src/main.ts",
+    "build:all": "node scripts/build.mjs",
+    "dev": "obsidian-plugin dev --with-stylesheet src/styles.css src/main.ts",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "test": "node --experimental-strip-types --test tests/*.test.ts",
+    "typecheck": "tsc -p tsconfig.typecheck.json",
+    "postversion": "node version-bump.mjs && npm run build",
+    "release": "publish-fast"
+  },
+  "devDependencies": {
+    "@lukasbach/eslint-config-deps": "^1.0.2",
+    "@types/react": "^18.0.30",
+    "@types/react-dom": "^18.0.11",
+    "eslint": "^8.57.1",
+    "obsidian": "^1.13.1",
+    "obsidian-plugin-cli": "^0.9.0",
+    "publish-fast": "^0.0.19",
+    "typescript": "^5.9.3"
+  },
+  "eslintConfig": {
+    "extends": "@lukasbach/base/react",
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    },
+    "rules": {
+      "no-new": "off",
+      "@typescript-eslint/no-use-before-define": "off",
+      "import/no-cycle": "off",
+      "react/require-default-props": "off",
+      "react/function-component-definition": "off",
+      "react/jsx-props-no-spreading": "off",
+      "jsx-a11y/label-has-associated-control": "off",
+      "no-plusplus": "off",
+      "import/extensions": [
+        "error",
+        "never"
+      ]
+    },
+    "ignorePatterns": [
+      "lib",
+      "dist",
+      "*.js"
+    ]
+  },
+  "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
+    "builtin-modules": "^3.3.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.8.0"
+  },
+  "publish": {
+    "preScripts": "lint,build",
+    "skipPublish": true,
+    "releaseAssets": "dist/*",
+    "noVersionPrefix": true
+  },
+  "allowScripts": {
+    "esbuild@0.12.29": true
+  }
+}

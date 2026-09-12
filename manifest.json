@@ -1,0 +1,9 @@
+{
+	"id": "obsidian-file-order",
+	"name": "File Order",
+	"description": "用文件名中的数字前缀定义自定义排序，拖拽即可更新顺序",
+	"author": "CHNLM",
+	"minAppVersion": "0.15.0",
+	"version": "1.0.0",
+	"isDesktopOnly": false
+}
