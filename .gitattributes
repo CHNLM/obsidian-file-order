@@ -1,0 +1,3 @@
+# Keep line endings identical across Windows/Linux/macOS so the prettier
+# ESLint rule (endOfLine: lf) passes everywhere, including Windows checkouts.
+* text=auto eol=lf
